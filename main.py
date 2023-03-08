@@ -1,12 +1,10 @@
-#!/usr/bin/python3
 
-import tkinter
 from tkinter import *
 
-root=Tk()
-root.title("To-Do-List")
-root.geometry("400x650x400+100")
-root.resizeable(False,False)
+window=Tk()
+window.title("To-Do-List")
+window.geometry("400x650+400+100")
+window.resizeable(False,False)
 
-root.mainloop()
+window.mainloop()
 
