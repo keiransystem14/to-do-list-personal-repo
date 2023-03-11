@@ -57,6 +57,9 @@ listbox.config(yscrollcommand=scrollbar.set)
 scrollbar.config(command=listbox.yview)
 
 
+#Task delete button
+Delete=PhotoImage(file="Image_Object/delete.png")
+Button(app,image=Delete,bd=0).pack(side=BOTTOM,pady=13)
 
 
 
