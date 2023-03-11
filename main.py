@@ -48,9 +48,13 @@ button.place(x=300,y=180)
 padding = Frame(app,bd=3,width=700,height=280,bg="#32405b")
 padding.pack(pady=(160,0))
 
-listbox = Listbox(padding,font=('arial',12),width=90,height=16,bg="#32405b", bd=0)
-listbox.pack(side=LEFT, fill=BOTH)
+listbox = Listbox(padding,font=('arial',12),width=40,height=16,bg="#32405b", bd=0, fg="white", cursor="hand2", selectbackground="#5a95ff")
+listbox.pack(side=LEFT, fill=BOTH, padx=2)
+scrollbar = Scrollbar(padding)
+scrollbar.pack(side= RIGHT, fill=BOTH)
 
+listbox.config(yscrollcommand=scrollbar.set)
+scrollbar.config(command=listbox.yview)
 
 
 
