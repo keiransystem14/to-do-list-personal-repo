@@ -29,14 +29,32 @@ Label(app,image=TaskImage,bg="#32405b").place(x=340,y=25)
 title=Label(app, text="TASK LIST",font="arial 20 bold",fg="white",bg="#32405b")
 title.place(x=130,y=20)
 
-#list (main)
+#Creating a text box
 
-textbox= Frame(app,width=400,height=50,bg="white", bd=0)
+textbox= Frame(app,width=400,height=43,bg="white", bd=0)
 textbox.place(x=0,y=180)
 
 write=StringVar()
-write_entry=Entry(textbox,width=18,font="arial 20")
-write_entry.place(x=10,y=7)
+write_entry=Entry(textbox,width=20,font="arial 18")
+write_entry.place(x=10,y=5)
+
+#Creating a button on this application
+
+button=Button(app,text="ADD",font="arial 20",bd=0, width=6, bg="#5a95ff", fg="#fff")
+button.place(x=300,y=180)
+
+#Creating a listbox to store the list 
+
+padding = Frame(app,bd=3,width=700,height=280,bg="#32405b")
+padding.pack(pady=(160,0))
+
+listbox = Listbox(padding,font=('arial',12),width=90,height=16,bg="#32405b", bd=0)
+listbox.pack(side=LEFT, fill=BOTH)
+
+
+
+
+
 
 app.mainloop()
 
