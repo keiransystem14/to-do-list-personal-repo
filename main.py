@@ -24,8 +24,24 @@ def addWorkload():
         listbox.insert(END, workload)
         
 
+#It defines a function called "deleteWorkload()". Inside the function, it uses the global variable to globally access the workload_list array while the application is running. It then gets the positional point of where the text is inside the listbox. 
 
-def WorkloadFile():
+#It uses the IF statement to check if the text is inside the listbox.If it's true then it opens the workload.txt file and deletes that specific item from that text file. It then updates the listbox and displays what's inside the workload.txt file. 
+
+
+def deleteWorkload():
+    global workload_list
+    workload = str(listbox.get(ANCHOR))
+    if workload in workload_list:
+        workload_list.remove(workload)
+        with open("workload.txt", 'w') as taskfile:
+            for workload in workload_list:
+                taskfile.write(workload+"\n")
+                
+            listbox.delete(ANCHOR)
+
+
+def openWorkloadFile():
 
     try:
 
@@ -96,11 +112,11 @@ scrollbar.pack(side= RIGHT, fill=BOTH)
 listbox.config(yscrollcommand=scrollbar.set)
 scrollbar.config(command=listbox.yview)
 
-WorkloadFile()
+openWorkloadFile()
 
 #Task delete button
 Delete=PhotoImage(file="Image_Object/delete.png")
-Button(app,image=Delete,bd=0).pack(side=BOTTOM,pady=13)
+Button(app,image=Delete,bd=0, command=deleteWorkload).pack(side=BOTTOM,pady=13)
 
 
 
