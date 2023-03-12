@@ -5,7 +5,22 @@ app=Tk()
 app.title("To-Do-List")
 app.geometry("400x650+400+100")
 
-tasklist = []
+workload_list = []
+
+
+def WorkloadFile():
+    with open("workload.txt","r") as taskfile:               #With open function means it tells the computer to open and read the workload.txt file
+        workloads = taskfile.readlines()                     #Readline method means it returns one line from the file.
+
+
+# In this code, python for loop is used to run it's block of code multiple times until it reaches and reads the last item.In this example below, the variable workload tries to access each item inside the workloads text file on an iterated loop. !='\'n' means it's evaluated as true if the last item is different to a new line last item is encountered. When the new line which appears to be the last line of the text file, it gets added onto the workload_list array. It adds the workload_list array onto the listbox. 
+
+
+    for workload in workloads:                             
+        if workload !='\n':
+            workload_list.append(workload)
+            listbox.insert(END, workload)
+            
 
 #to-do-list application icon
 
@@ -56,6 +71,7 @@ scrollbar.pack(side= RIGHT, fill=BOTH)
 listbox.config(yscrollcommand=scrollbar.set)
 scrollbar.config(command=listbox.yview)
 
+WorkloadFile()
 
 #Task delete button
 Delete=PhotoImage(file="Image_Object/delete.png")
