@@ -2,7 +2,7 @@
 from tkinter import *
 
 app=Tk()
-app.title("To-Do-List")
+app.title("Personal-To-Do-List")
 app.geometry("400x650+400+100")
 
 #array
@@ -18,7 +18,7 @@ def addWorkload():
     write_entry.delete(0, END)
 
     if workload:
-        with open("workload.txt","a") as taskfile:
+        with open("personal-workload.txt","a") as taskfile:
             taskfile.write(f"\n{workload}")
         workload_list.append(workload)
         listbox.insert(END, workload)
@@ -34,7 +34,7 @@ def deleteWorkload():
     workload = str(listbox.get(ANCHOR))
     if workload in workload_list:
         workload_list.remove(workload)
-        with open("workload.txt", 'w') as taskfile:
+        with open("personal-workload.txt", 'w') as taskfile:
             for workload in workload_list:
                 taskfile.write(workload+"\n")
                 
@@ -47,7 +47,7 @@ def openWorkloadFile():
 
         global workload_list
 
-        with open("workload.txt","r") as taskfile:               #With open function means it tells the computer to open and read the workload.txt file
+        with open("personal-workload.txt","r") as taskfile:               #With open function means it tells the computer to open and read the workload.txt file
             workloads = taskfile.readlines()                     #Readline method means it returns one line from the file.
 
 
@@ -60,7 +60,7 @@ def openWorkloadFile():
                 listbox.insert(END, workload)
             
     except:
-        file= open('workload.txt','w')
+        file= open('personal-workload.txt','w')
         file.close()
 
 #to-do-list application icon
@@ -82,8 +82,8 @@ TaskImage=PhotoImage(file="Image_Object/task.png")
 Label(app,image=TaskImage,bg="#CCFFAB").place(x=340,y=20)
 
 #Creating a title for the to-do-list application
-title=Label(app, text="TASK LIST",font="arial 20 bold",fg="black",bg="#CCFFAB")
-title.place(x=130,y=15)
+title=Label(app, text="PERSONAL TASK LIST",font="arial 18 bold",fg="black",bg="#CCFFAB")
+title.place(x=65,y=15)
 
 #Creating a text box
 
